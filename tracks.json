@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "title": "Aidan_Birthday_2025",
+    "artist": "Unknown Artist",
+    "album": "—",
+    "duration": "—",
+    "file": "audio/Aidan_Birthday_2025.mp3"
+  },
+  {
+    "title": "Alex_Birthday_2025",
+    "artist": "Unknown Artist",
+    "album": "—",
+    "duration": "—",
+    "file": "audio/Alex_Birthday_2025.mp3"
+  },
+  {
+    "title": "Andy_B_Day2025",
+    "artist": "Unknown Artist",
+    "album": "—",
+    "duration": "—",
+    "file": "audio/Andy_B_Day2025.mp3"
+  },
+  {
+    "title": "Ben_Birthday_2024",
+    "artist": "Unknown Artist",
+    "album": "—",
+    "duration": "—",
+    "file": "audio/Ben_Birthday_2024.mp3"
+  }
+]
