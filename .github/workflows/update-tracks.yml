@@ -1,0 +1,49 @@
+name: Update tracks.json
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'audio/**'
+      - 'covers/**'
+      - '.github/workflows/update-tracks.yml'
+      - '.github/scripts/scan-audio.js'
+  workflow_dispatch:
+
+jobs:
+  scan-audio:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Scan audio/ and regenerate tracks.json
+        run: node .github/scripts/scan-audio.js
+
+      - name: Commit and push tracks.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tracks.json
+          if git diff --staged --quiet; then
+            echo "tracks.json unchanged — nothing to commit."
+          else
+            git commit -m "chore: auto-update tracks.json [skip ci]"
+            git pull --rebase -X ours origin ${{ github.ref_name }} || {
+              git checkout --ours tracks.json
+              git add tracks.json
+              git rebase --continue
+            }
+            git push origin ${{ github.ref_name }}
+          fi
