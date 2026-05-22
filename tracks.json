@@ -26,5 +26,19 @@
     "album": "—",
     "duration": "—",
     "file": "audio/Ben_Birthday_2024.mp3"
+  },
+  {
+    "title": "Ben_Birthday_2026",
+    "artist": "Unknown Artist",
+    "album": "—",
+    "duration": "—",
+    "file": "audio/Ben_Birthday_2026.mp3"
+  },
+  {
+    "title": "Derek_Birthday_2025",
+    "artist": "Unknown Artist",
+    "album": "—",
+    "duration": "—",
+    "file": "audio/Derek_Birthday_2025.mp3"
   }
 ]
